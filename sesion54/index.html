@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Promise : sinh ra giải quyết các tác vụ đồng bộ giúp việc giải quyết bất 
+        đồng bộ mà callback-hell (dùng callback) code nhìn gọn gàng hơn ,dễ chỉnh sửa , bảo trì hơn
+        Promise sinh ra ở phiên bản ES6-2015
+        1.Cú pháp
+        let promise = new Promise()
+        // khởi tạo đối tươnhj Promise từ obj contructer
+        // đối số của new Promise nhận là 1 cái hàm
+        Trong hàm này nhận vào 2 tham số
+        1.Resolve:giải quyết thành công
+        2.reject : từ chối , thất bại 
+    -->
+    <script>
+        let promise = new Promise((resolve,reject)=>{
+            // viet logic xu ly code
+            // neu logic thanh cong thi goi resolve
+            // neu logic thanh cong thi goi reject
+            resolve([1,2,3])
+        })
+        // khi hoi tao 1 promise thi nó dang ở trong trạng thái pending(chờ xử lý)
+        // console.log("promise",promise)
+        // trong pt.then có nhiều pt.then khác ,kết quả trả về then trước là tham số đầu vào 
+        // của pt then sau
+        promise
+        .then(()=>{
+            console.log("thanh congggggggg");
+
+        })
+        .catch(()=>{
+            console.log("loiiiiiiiiiiiiii");
+
+        })
+
+        let newPromise = new Promise((a,b)=>{
+            setTimeout(()=>{
+                a()
+            },1000)
+
+        })
+        newPromise
+        .then(data=>console.log(111))
+        /////////////////////////////////////////////////////
+        let newPromise1 = new Promise((a,b)=>{
+            setTimeout(()=>{
+                console.log(11111);
+                a()
+            },1000)
+
+        })
+        newPromise1
+        .then(()=>{
+            return newPromise1 = new Promise((a,b)=>{
+            setTimeout(()=>{
+                console.log(22222);
+                a()
+            },1000)
+
+        })
+        })
+        .then(()=>{
+            return newPromise1 = new Promise((a,b)=>{
+            setTimeout(()=>{
+                console.log(33333);
+                a()
+            },1000)
+        })
+        })
+
+        
+    </script>
+
+
+</body>
+</html>

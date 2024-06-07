@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const b5=(number)=>{
+            let sum =0
+            if( typeof number !="number"){
+                throw new Error("Sai so , nhap lai di")
+            }
+            else{
+                for(let i = 1 ; i < number ; i ++){
+                    if(number%i===0){
+                        sum++
+                    }
+                }
+                if(sum ===2){
+                    console.log(`${number} la so nguyen to`);
+
+                }else{
+                    console.log(`${number} khong phai so nguyen to`);
+                }
+            }
+            
+        }
+        try{
+                b5(4)
+            }
+            catch(error){
+                console.log(error.message);
+            }
+    </script>
+</body>
+</html>

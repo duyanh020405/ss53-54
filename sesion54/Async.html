@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Async-await sinh ra o phien ban ES7.
+        Sinh ra giai quyet van de xu ly dong bo
+        giup cho viec viet code bang promise trở nên gọn gàng hơn
+    -->
+    <script>
+        async function asyncAwait(params){
+            new Promise((a,b)=>{
+                setTimeout(()=>{
+                    console.log("1111");
+                    a()
+                },3000)
+
+            })
+            console.log("3333");
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const b3 = (numbers) => {
+            let sum = 0;
+            for (let i = 0; i < numbers.length; i++) { 
+                
+                if (typeof numbers[i] !== "number") {
+                   throw new Error(`Giá trị của ${numbers[i]} không đúng, vui lòng nhập lại`)
+                    console.log(numbers[i]);
+                    sum += numbers[i]; 
+                }    
+            }
+            console.log("Sum:", sum);
+        }
+
+        try {
+            b3([1, 2, 3, 4, 5, 6]); 
+        } catch (error) {
+            console.log(error.message);
+        }
+
+        try {
+            b3([1, 2, 3, 4, 5, "l"]); 
+        } catch (error) {
+            console.log(error.message);
+        }
+    </script>
+</body>
+</html>

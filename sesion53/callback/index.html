@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Đồng bộ và không đồng bộ
+        1.Đồng bộ i synchronous
+         Ngôn ngữ javascript là 1 ngôn ngữ đơn luồng (single thread: chỉ 1 luồng 
+         duy nhất , luồng code chạy từ trái qua phải và từ trên xuống dưới)
+        2.Bất đồng bộ : asynchronous
+         - Những việc cần thời gian xử lí nhưu các hàm setTimeout , SetInterval ,readfile.writefile
+         gửi request lên server, các thao tác tương tác database
+         Trong JS sinh ra các cách để xử lí các thao tác vụ bất đồng bộ
+         1. dùng callback
+            call back là gì : là 1 hàm được truyền vào làm đối số của hàm khác 
+         2.promise
+         3.async-await
+    -->
+    <script>
+        // console.log("1");
+        // setTimeout(()=>{
+        //     console.log("2");
+        // },1000)
+        // console.log("3");
+
+        // call back ex1
+        // function task1(a){
+        //     setTimeout(()=>{
+        //         console.log("cong viec 1");
+        //         a()
+        //     },2000)
+        // }
+        // function task2(){
+        //     console.log("duoc thuc hien sau khi task1 hoan thanh");
+        // }
+        // task1(task2)
+
+        //call back ex2
+        
+        setTimeout(()=>{
+            console.log("cong viec 1");
+            setTimeout(()=>{
+                console.log("cong viec 2")
+                setTimeout(()=>{
+                    console.log("cong viec 3");
+                },1000)
+            },1000)
+        ,1000})
+         let arr=[1,2,3,4,5]
+        //  let b = arr.map((item)=>{
+        //     return item*2
+        //  })
+        //  console.log(b);
+        function myMap(a,b){
+            let r=[]
+            for(const item of a){
+                r.push(b(item))
+                console.log(r);
+            }
+            return r
+        }
+        myMap(arr,(item)=>item*2)
+        //
+        
+        function Filter(a,b){
+            let e = []
+            for (const item of a) {
+                b(item)
+                if(b(item)===true){
+                e.push(item)
+                console.log(e);
+                }
+            }
+            return e
+        }
+        Filter(arr,(item)=>item > 3)
+        
+
+        
+    </script>
+</body>
+</html>

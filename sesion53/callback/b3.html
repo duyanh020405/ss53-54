@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[1,2,3,4,5]
+        function b3(a,b){
+           a.map(item => {
+              return b(item);
+            });
+            
+
+        }
+        b3(arr,console.log)
+    </script>
+</body>
+</html>

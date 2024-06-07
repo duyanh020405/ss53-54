@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const b2 = (a, b) => {
+            if (b === 0 || a === 0 || typeof a !== "number" || typeof b !== "number") {
+                throw new Error("Khong hop le, vui long dien lai");
+            } else {
+                return a / b; 
+            }
+        }
+
+        try {
+            const kq = b2(4, 2); 
+            console.log("ket qua:", kq);
+        } catch (error) {
+            console.log(error.message); 
+        }
+    </script>
+</body>
+</html>
